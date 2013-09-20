@@ -15,13 +15,18 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarSignal extends AOKPPreferenceFragment implements
         OnPreferenceChangeListener {
 
+    private static final String STATUS_BAR_NETWORK_STATS = "status_bar_show_network_stats";
+    private static final String STATUS_BAR_NETWORK_STATS_UPDATE = "status_bar_network_status_update";
+
     ListPreference mDbmStyletyle;
     ListPreference mWifiStyle;
+    private ListPreference mStatusBarNetStatsUpdate;
     ColorPickerPreference mColorPicker;
     ColorPickerPreference mWifiColorPicker;
     CheckBoxPreference mHideSignal;
     CheckBoxPreference mAltSignal;
     CheckBoxPreference mShow4gForLte;
+    private CheckBoxPreference mStatusBarNetworkStats;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,10 @@ public class StatusBarSignal extends AOKPPreferenceFragment implements
         mWifiStyle.setValue(Integer.toString(Settings.System.getInt(mContentRes,
                 Settings.System.STATUSBAR_WIFI_SIGNAL_TEXT, 0)));
 
+        mStatusBarNetworkStats = (CheckBoxPreference) findPreference(STATUS_BAR_NETWORK_STATS);
+        mStatusBarNetworkStats.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_NETWORK_STATS, 0) == 1));
+
         mWifiColorPicker = (ColorPickerPreference) findPreference("wifi_signal_color");
         mWifiColorPicker.setOnPreferenceChangeListener(this);
 
@@ -59,6 +68,13 @@ public class StatusBarSignal extends AOKPPreferenceFragment implements
         mShow4gForLte = (CheckBoxPreference) findPreference("show_4g_for_lte");
         mShow4gForLte.setChecked(Settings.System.getBoolean(mContentRes,
                 Settings.System.STATUSBAR_SIGNAL_SHOW_4G_FOR_LTE, true));
+
+        mStatusBarNetStatsUpdate = (ListPreference) findPreference(STATUS_BAR_NETWORK_STATS_UPDATE);
+        long statsUpdate = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, 500);
+        mStatusBarNetStatsUpdate.setValue(String.valueOf(statsUpdate));
+        mStatusBarNetStatsUpdate.setSummary(mStatusBarNetStatsUpdate.getEntry());
+        mStatusBarNetStatsUpdate.setOnPreferenceChangeListener(this);
 
         if (Integer.parseInt(mDbmStyletyle.getValue()) == 0) {
             mColorPicker.setEnabled(false);
@@ -94,6 +110,11 @@ public class StatusBarSignal extends AOKPPreferenceFragment implements
         } else if (preference == mShow4gForLte) {
             Settings.System.putBoolean(mContentRes,
                     Settings.System.STATUSBAR_SIGNAL_SHOW_4G_FOR_LTE, mShow4gForLte.isChecked());
+            return true;
+        } else if (preference == mStatusBarNetworkStats) {
+            boolean value = mStatusBarNetworkStats.isChecked();
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_NETWORK_STATS, value ? 1 : 0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -144,6 +165,13 @@ public class StatusBarSignal extends AOKPPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentRes,
                     Settings.System.STATUSBAR_WIFI_SIGNAL_TEXT_COLOR, intHex);
+            return true;
+        } else if (preference == mStatusBarNetStatsUpdate) {
+            long updateInterval = Long.valueOf((String) newValue);
+            int index = mStatusBarNetStatsUpdate.findIndexOfValue((String) newValue);
+            Settings.System.putLong(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, updateInterval);
+            mStatusBarNetStatsUpdate.setSummary(mStatusBarNetStatsUpdate.getEntries()[index]);
             return true;
         }
         return false;
