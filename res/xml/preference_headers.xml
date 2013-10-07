@@ -52,6 +52,15 @@
         android:summary="@string/header_summary_activedisplay"
 />
 
+    <header android:id="@+id/launcher_settings"
+            android:title="@string/launcher_settings_title"
+            android:icon="@drawable/ic_settings_launcher" >
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.cyanogenmod.trebuchet.preference.Preferences"
+                android:targetPackage="com.cyanogenmod.trebuchet" />
+    </header>
+
     <header
         android:id="@+id/statusbar"
         android:title="@string/header_statusbar" />

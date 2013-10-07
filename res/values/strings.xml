@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ROM Control</string>
+    <string name="app_name">Nocturnal Tweaks</string>
 
     <!-- Header Strings -->
     <string name="user_interface">Interface</string>
@@ -372,7 +372,8 @@
     <string name="click_collapse">On click</string>
     <string name="long_collapse">On long click</string>
     <string name="both_collapse">Both click and long click</string>
-
+    <!-- Launcher settings  -->
+    <string name="launcher_settings_title">Launcher</string>
     <!-- Statusbar | Clock -->
     <string name="clock_title_enable">Clock style</string>
     <string name="title_clock_ampm_entries">AM/PM style</string>
@@ -765,7 +766,7 @@
     <string name="lockscreen_text_color_title">Lockscreen text color</string>
     <string name="lockscreen_text_color_summary">Set the lockscreen text color</string>
     <string name="lockscreen_weather_title">Enable</string>
-    <string name="lockscreen_weather_summary">Show Weather Information on Lockscreen. You need to enable ROMControl\'s
+    <string name="lockscreen_weather_summary">Show Weather Information on Lockscreen. You need to enable Nocturnal Tweak\'s
         Weather service to use this
     </string>
     <string name="lockscreen_weather_type_title">Lockscreen Weather style</string>
