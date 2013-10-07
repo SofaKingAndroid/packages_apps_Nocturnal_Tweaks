@@ -1,12 +1,4 @@
-<preference-headers 
-xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <header
-        android:id="@+id/about"
-        android:fragment="com.aokp.romcontrol.fragments.About"
-        android:title="@string/about_aokp"
-        android:icon="@drawable/ic_rom_control_about"
-        android:summary="@string/about_aokp_summary" />
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
 
     <header android:title="@string/user_interface" />
 
@@ -55,6 +47,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
     <header
         android:id="@+id/active_display"
         android:fragment="com.aokp.romcontrol.fragments.ActiveDisplaySettings"
+        android:icon="@drawable/ic_rom_control_active"	
         android:title="@string/active_display"
         android:summary="@string/header_summary_activedisplay"
 />
