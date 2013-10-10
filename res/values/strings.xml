@@ -144,6 +144,9 @@
     <string name="persist_file_hosts">Persist Hosts</string>
     <string name="persist_file_hosts_summary">Persist hosts file</string>
 
+    <!-- Device specific settings -->
+    <string name="advanced_settings_title">Device options</string>
+
     <!-- Power Saving -->
     <string name="title_pref_powersaving_pref_mode">Enable power saver</string>
     <string name="summary_pref_powersaving_pref_mode">@null</string>
