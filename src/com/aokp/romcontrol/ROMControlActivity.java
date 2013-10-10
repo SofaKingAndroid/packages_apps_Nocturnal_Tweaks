@@ -27,6 +27,10 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,6 +43,7 @@ public class ROMControlActivity extends PreferenceActivity implements ButtonBarH
 
     private static boolean hasNotificationLed;
     private static boolean hasSPen;
+    private static boolean hasLauncherSettings;
     private static String KEY_USE_ENGLISH_LOCALE = "use_english_locale";
 
     protected HashMap<Integer, Integer> mHeaderIndexMap = new HashMap<Integer, Integer>();
@@ -59,6 +64,7 @@ public class ROMControlActivity extends PreferenceActivity implements ButtonBarH
     public void onCreate(Bundle savedInstanceState) {
         hasNotificationLed = getResources().getBoolean(R.bool.has_notification_led);
         hasSPen = getResources().getBoolean(R.bool.config_stylusGestures);
+        hasLauncherSettings = getResources().getBoolean(R.bool.has_launcher_settings);
         mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         defaultLocale = Locale.getDefault();
         Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
@@ -204,6 +210,23 @@ public class ROMControlActivity extends PreferenceActivity implements ButtonBarH
             } else if (header.id == R.id.vibrations) {
                 if (mVibrator == null || !mVibrator.hasVibrator()) {
                     toRemove.add(header);
+                }
+            } else if (header.id == R.id.launcher_settings) {
+                Intent launcherIntent = new Intent(Intent.ACTION_MAIN);
+                launcherIntent.addCategory(Intent.CATEGORY_HOME);
+                launcherIntent.addCategory(Intent.CATEGORY_DEFAULT);
+
+                Intent launcherPreferencesIntent = new Intent(Intent.ACTION_MAIN);
+                launcherPreferencesIntent.addCategory("com.cyanogenmod.category.LAUNCHER_PREFERENCES");
+
+                ActivityInfo defaultLauncher = getPackageManager().resolveActivity(launcherIntent, PackageManager.MATCH_DEFAULT_ONLY).activityInfo;
+                launcherPreferencesIntent.setPackage(defaultLauncher.packageName);
+                ResolveInfo launcherPreferences = getPackageManager().resolveActivity(launcherPreferencesIntent, 0);
+                if (!hasLauncherSettings) {
+                    header.intent = new Intent().setClassName(launcherPreferences.activityInfo.packageName,
+                            launcherPreferences.activityInfo.name);
+                } else {
+                    target.remove(header);
                 }
             } else if (header.id == R.id.spen) {
                 if (!hasSPen) {

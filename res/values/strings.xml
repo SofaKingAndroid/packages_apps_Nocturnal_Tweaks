@@ -65,6 +65,7 @@
     <string name="header_summary_lockscreens">@null</string>
     <string name="header_summary_weather">@null</string>
     <string name="header_summary_vibrations">@null</string>
+    <string name="header_summary_launcher">@null</string>   
     <string name="header_summary_summary">@null</string>
     <string name="header_summary_installer">@null</string>
     <string name="header_summary_activedisplay">@null</string>
@@ -146,7 +147,8 @@
     <!-- Power Saving -->
     <string name="title_pref_powersaving_pref_mode">Enable power saver</string>
     <string name="summary_pref_powersaving_pref_mode">@null</string>
-
+    <string name="about_team">Get to know 
+your inner Sloth</string>
     <string name="title_pref_powersaving_data_screen_off">Screen off data action</string>
     <string name="summary_pref_powersaving_data_screen_off">What to do with the data when the screen turns off</string>
 
@@ -1158,6 +1160,10 @@
     <!-- haptic feedback on toggle press -->
     <string name="toggles_enable_haptic_feedback_title">Enable haptic feedback</string>
     <string name="toggles_enable_haptic_feedback_summary">Use haptic feedback when pressing toggles</string>
+
+
+    <!-- Themes -->
+    <string name="themes_title">Theme Chooser</string>
 
     <!-- dynamic changelog -->
     <string name="dynamic_changelog_title">Dynamic ChangeLog</string>

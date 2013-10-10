@@ -1,5 +1,14 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <header android:id="@+id/about_team_nocturnal"
+            android:title="@string/about_team"
+            android:icon="@drawable/tn" >
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.nocturnal.about.AboutActivity"
+                android:targetPackage="com.nocturnal.about" />
+    </header>
+
     <header android:title="@string/user_interface" />
 
     <header
@@ -8,6 +17,11 @@
         android:title="@string/general_ui"
         android:icon="@drawable/ic_rom_control_general_ui"
         android:summary="@string/header_summary_general_ui" />
+
+    <header
+        android:id="@+id/launcher_settings"
+        android:title="@string/launcher_settings_title"
+        android:icon="@drawable/ic_settings_launcher" />
 
     <header
         android:id="@+id/lockscreen"
@@ -51,15 +65,6 @@
         android:title="@string/active_display"
         android:summary="@string/header_summary_activedisplay"
 />
-
-    <header android:id="@+id/launcher_settings"
-            android:title="@string/launcher_settings_title"
-            android:icon="@drawable/ic_settings_launcher" >
-        <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="com.cyanogenmod.trebuchet.preference.Preferences"
-                android:targetPackage="com.cyanogenmod.trebuchet" />
-    </header>
 
     <header
         android:id="@+id/statusbar"
@@ -152,5 +157,16 @@
         android:summary="@string/header_summary_installer"
         android:icon="@drawable/ic_rom_control_installer"
         android:fragment="com.aokp.romcontrol.fragments.Installer" />
+
+
+   <header 
+       android:id="@+id/themes"
+       android:title="@string/themes_title"
+       android:icon="@drawable/ic_romcontrol_themes" >
+   <intent
+       android:action="android.intent.action.MAIN"
+       android:targetPackage="com.tmobile.themechooser"
+       android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+   </header> 
 
 </preference-headers>
