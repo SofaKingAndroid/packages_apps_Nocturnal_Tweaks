@@ -18,16 +18,6 @@
         android:icon="@drawable/ic_rom_control_general_ui"
         android:summary="@string/header_summary_general_ui" />
 
-   <header 
-       android:id="@+id/advanced_settings"
-       android:title="@string/advanced_settings_title"
-       android:icon="@drawable/ic_settings_advanced">
-   <intent
-       android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
-       android:targetPackage="com.cyanogenmod.settings.device"
-       android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
-   </header>
-
     <header
         android:id="@+id/launcher_settings"
         android:title="@string/launcher_settings_title"
@@ -83,9 +73,7 @@
         android:fragment="com.aokp.romcontrol.fragments.ActiveDisplaySettings"
         android:icon="@drawable/ic_rom_control_active"	
         android:title="@string/active_display"
-        android:summary="@string/header_summary_activedisplay"
-
-/>
+        android:summary="@string/header_summary_activedisplay" />
 
     <header
         android:id="@+id/statusbar"
@@ -178,5 +166,16 @@
         android:summary="@string/header_summary_installer"
         android:icon="@drawable/ic_rom_control_installer"
         android:fragment="com.aokp.romcontrol.fragments.Installer" />
+
+
+   <header 
+       android:id="@+id/advanced_settings"
+       android:title="@string/advanced_settings_title"
+       android:icon="@drawable/ic_settings_advanced">
+   <intent
+       android:action="com.cyanogenmod.action.LAUNCH_DEVICE_SETTINGS"
+       android:targetPackage="com.cyanogenmod.settings.device"
+       android:targetClass="com.cyanogenmod.settings.device.DeviceSettings" />
+   </header>
 
 </preference-headers>

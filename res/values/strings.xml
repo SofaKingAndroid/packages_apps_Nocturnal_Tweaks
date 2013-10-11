@@ -65,7 +65,7 @@
     <string name="header_summary_lockscreens">@null</string>
     <string name="header_summary_weather">@null</string>
     <string name="header_summary_vibrations">@null</string>
-    <string name="header_summary_launcher">@null</string>   
+    <string name="header_summary_launcher">@null</string>
     <string name="header_summary_summary">@null</string>
     <string name="header_summary_installer">@null</string>
     <string name="header_summary_activedisplay">@null</string>
@@ -143,9 +143,6 @@
     <string name="persist_prop_density_summary">Persist LCD density</string>
     <string name="persist_file_hosts">Persist Hosts</string>
     <string name="persist_file_hosts_summary">Persist hosts file</string>
-
-    <!-- Device specific settings -->
-    <string name="advanced_settings_title">Device options</string>
 
     <!-- Power Saving -->
     <string name="title_pref_powersaving_pref_mode">Enable power saver</string>
@@ -262,6 +259,7 @@ your inner Sloth</string>
     <string name="transparency_dialog_transparency_keyguard">Lockscreen alpha</string>
     <string name="transparency_dialog_lockscreen">Lockscreen</string>
     <string name="dark_ui">Dark SKA</string>
+    <string name="advanced_settings_title">Device options</string>
 
     <!-- LCD Density -->
     <string name="lcd_density_title">LCD Density</string>

@@ -44,7 +44,6 @@ public class ROMControlActivity extends PreferenceActivity implements ButtonBarH
     private static boolean hasNotificationLed;
     private static boolean hasSPen;
     private static boolean hasLauncherSettings;
-    private static boolean hasAdvancedSettings;
     private static String KEY_USE_ENGLISH_LOCALE = "use_english_locale";
 
     protected HashMap<Integer, Integer> mHeaderIndexMap = new HashMap<Integer, Integer>();
@@ -66,7 +65,6 @@ public class ROMControlActivity extends PreferenceActivity implements ButtonBarH
         hasNotificationLed = getResources().getBoolean(R.bool.has_notification_led);
         hasSPen = getResources().getBoolean(R.bool.config_stylusGestures);
         hasLauncherSettings = getResources().getBoolean(R.bool.has_launcher_settings);
-        hasAdvancedSettings = getResources().getBoolean(R.bool.has_advanced_settings);
         mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         defaultLocale = Locale.getDefault();
         Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
@@ -229,10 +227,6 @@ public class ROMControlActivity extends PreferenceActivity implements ButtonBarH
                             launcherPreferences.activityInfo.name);
                 } else {
                     target.remove(header);
-                }
-            } else if (header.id == R.id.advanced_settings) {
-                if (!hasAdvancedSettings) {
-                    toRemove.add(header);
                 }
             } else if (header.id == R.id.spen) {
                 if (!hasSPen) {
