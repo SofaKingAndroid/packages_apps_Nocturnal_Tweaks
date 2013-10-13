@@ -32,6 +32,17 @@
         android:targetPackage="com.tmobile.themechooser"
         android:targetClass="com.tmobile.themechooser.ThemeChooser" />
     </header>
+    
+    
+    <header 
+        android:id="@+id/performance"
+        android:title="@string/performance_control"
+        android:icon="@drawable/ic_empty >
+    <intent
+        android:action="android.intent.action.MAIN"
+        android:targetPackage="com.brewcrewfoo.performance"
+        android:targetClass="com.brewcrewfoo.performance.activities.PCSettings" />
+    </header>
 
     <header
         android:id="@+id/lockscreen"
