@@ -1165,6 +1165,9 @@ your inner Sloth</string>
 
     <!-- Themes -->
     <string name="themes_title">Theme Chooser</string>
+    
+        <!-- performance Control -->
+    <string name="performance_control">Performance Control</string>
 
     <!-- dynamic changelog -->
     <string name="dynamic_changelog_title">Dynamic ChangeLog</string>
