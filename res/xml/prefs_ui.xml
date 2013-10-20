@@ -105,7 +105,7 @@
             android:key="show_overflow"
             android:title="@string/show_overflow_title"
             android:summary="@string/show_overflow_summary"
-            android:defaultValue="false" />
+            android:defaultValue="true" />
 
         <CheckBoxPreference
             android:key="rotate_180"
