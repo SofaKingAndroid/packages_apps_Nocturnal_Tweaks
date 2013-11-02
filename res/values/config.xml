@@ -11,6 +11,8 @@
 
     <!-- Whether device has hardware buttons -->
     <bool name="has_hardware_buttons">true</bool>
+    
+    <bool name="has_launcher_settings">false</bool>   
 
     <!-- Whether can use fast chage -->
     <bool name="has_fast_charge">true</bool>
@@ -23,4 +25,5 @@
 
     <!-- Whether device has led charging feature -->
     <bool name="has_led_charging_feature">false</bool>
+
 </resources>

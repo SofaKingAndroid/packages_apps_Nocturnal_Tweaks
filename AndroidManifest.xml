@@ -276,8 +276,6 @@
         <service
             android:name=".service.ExternalCommandService"
             android:exported="false"/>
-
-
     </application>
 
 </manifest>
