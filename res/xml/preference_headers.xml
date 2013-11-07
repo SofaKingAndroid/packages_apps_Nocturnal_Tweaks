@@ -17,12 +17,7 @@
         android:title="@string/general_ui"
         android:icon="@drawable/ic_rom_control_general_ui"
         android:summary="@string/header_summary_general_ui" />
-
-    <header
-        android:id="@+id/launcher_settings"
-        android:title="@string/launcher_settings_title"
-        android:icon="@drawable/ic_settings_launcher" />
-
+	
     <header 
         android:id="@+id/themes"
         android:title="@string/themes_title"
@@ -71,6 +66,13 @@
         android:icon="@drawable/ic_rom_control_navigation_ring"
         android:title="@string/interface_navring_settings_title"
         android:summary="@string/interface_navring_settings_summary" />
+
+    <header
+        android:id="@+id/hardware_keys"
+        android:fragment="com.aokp.romcontrol.fragments.HardwareKeys"
+        android:title="@string/title_hardware_keys"
+        android:icon="@drawable/ic_rom_control_hardware_keys"
+        android:summary="@string/header_summary_hardware_keys" />
 
     <header
         android:id="@+id/ribbon_targets"
